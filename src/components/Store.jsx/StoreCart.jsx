@@ -25,7 +25,7 @@ export default function StoreCart(props) {
       {!boolean ? (
         <></>
       ) : (
-        <div className="d-flex justify-content-evenly align-items-center border mb-3">
+        <div className="d-flex flex-wrap justify-content-evenly align-items-center border mb-3">
           <img src={image} style={{ width: "100px" }}/>
           <div>product {productNumber}</div>
           <div>
@@ -46,10 +46,9 @@ export default function StoreCart(props) {
           </div>
           
           <div>
-            <Button variant="danger">
+            <Button variant="danger" onClick={() => removeFromCart(productNumber - 1)}>
               <i
                 className="fa-solid fa-trash-can"
-                onClick={() => removeFromCart(productNumber - 1)}
               ></i>
             </Button>
           </div>

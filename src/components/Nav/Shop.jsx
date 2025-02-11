@@ -5,7 +5,7 @@ export default function Shop(props){
   const {data} = props
   return (
     <div className=" d-flex flex-column align-items-center">
-      <div className="d-flex">
+      <div className="d-flex flex-wrap">
       <Store
         image={data.images[0]}
         productNumber={1}
@@ -27,7 +27,7 @@ export default function Shop(props){
         addtoCart={data.addtoCart}
       />
       </div>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap">
       <Store
         image={data.images[2]}
         productNumber={3}
@@ -49,7 +49,7 @@ export default function Shop(props){
         addtoCart={data.addtoCart}
       />
       </div>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap">
       <Store
         image={data.images[4]}
         productNumber={5}

@@ -1,4 +1,5 @@
-import Nav from "react-bootstrap/Nav";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
@@ -73,56 +74,56 @@ export default function NavBar(props) {
 
   return (
     <>
-      <Nav className="justify-content-center" activeKey="/home">
-        <Nav.Item className="nav-link">
-          <Link to="/">Home</Link>
-        </Nav.Item>
-        <Nav.Item className="nav-link">
-          <Link to="/about">About</Link>
-        </Nav.Item>
-        <Nav.Item className="nav-link">
-          <Link to="/contact">Contact</Link>
-        </Nav.Item>
-        {!user.length ? (
-          <>
-            <Nav.Item className="nav-link">
-              <Link to="/register">Register</Link>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar.Brand as={Link} to="/">My Shop</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Item>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
             </Nav.Item>
-            <Nav.Item className="nav-link">
-              <Link to="login">Login</Link>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/about">About</Nav.Link>
             </Nav.Item>
-          </>
-        ) : (
-          <>
-            <Nav.Item className="nav-link">
-              <Link to="/profile">
-                {user.map((u) => {
-                  return (
-                    <i className="fa-solid fa-user" key={1}>
-                      <span className="ms-2">
-                        {u.name} {u.lastName}
-                      </span>
-                    </i>
-                  );
-                })}
-              </Link>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             </Nav.Item>
-            <Nav.Item className="nav-link">
-              <Link to="/shop">Shop</Link>
-            </Nav.Item>
-            <Nav.Item className="nav-link">
-              <Link to="/shoppingCart">
-                <i className="fa-solid fa-cart-shopping" key={2}></i>
-              </Link>
-            </Nav.Item>
-            <Nav.Item className="nav-link">
-              <Link to="/" onClick={() => props.onClick()}>
-                Logout
-              </Link>
-            </Nav.Item>
-          </>
-        )}
-      </Nav>
+
+            {!user.length ? (
+              <>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                </Nav.Item>
+              </>
+            ) : (
+              <>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/profile">
+                    <i className="fa-solid fa-user"></i>
+                    <span className="ms-2">{user[0]?.name} {user[0]?.lastName}</span>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/shop">Shop</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/shoppingCart">
+                    <i className="fa-solid fa-cart-shopping"></i>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/" onClick={() => props.onClick()}>
+                    Logout
+                  </Nav.Link>
+                </Nav.Item>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
       <Routes>
         <Route path="/" element={<Home />} />

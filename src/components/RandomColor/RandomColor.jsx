@@ -20,7 +20,7 @@ export default function RandomColor() {
   })
 
   return (
-    <div className="text-center fixed-bottom mb-3">
+    <div className="text-center mt-3">
       <span className="text-secondary">Random Background Color </span>
       <Button variant="secondary" onClick={()=>{setBoolean(true)}}>
         Start

@@ -13,8 +13,8 @@ export default function Store(props) {
     addtoCart,
   } = props;
   return (
-    <div className="d-flex flex-column">
-      <img src={image} style={{ width: "700px" }}></img>
+    <div className="d-flex flex-wrap flex-column">
+      <img src={image} style={{ width: "700px" }} className="img-fluid w-100" alt="Product"></img>
       <div className="text-center">
         <h3>Product {productNumber}</h3>
         <p>
